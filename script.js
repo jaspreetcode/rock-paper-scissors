@@ -65,21 +65,32 @@ function PlayGame() {
     // for (let i = 1; i <= 5; i++)
     //     playRound(getHumanChoice(), getComputerChoice());
 
+    const humanScoreElem = document.querySelector(".human-score");
+    const computerScoreElem = document.querySelector(".computer-score");
+    const winnerElem = document.querySelector(".winner");
+
+    humanScoreElem.textContent = "0";
+    computerScoreElem.textContent = "0";
+
     // Play a round on the click of a button
-    const buttons = document.querySelectorAll("button");
+    const buttons = document.querySelectorAll(".game-buttons button");
     buttons.forEach(button => {
         button.addEventListener("click", function(e) {
             const computerChoice = getComputerChoice();
             const humanChoice = e.target.textContent;
             playRound(humanChoice, computerChoice);
-            checkScore();
+            humanScoreElem.textContent = humanScore;
+            computerScoreElem.textContent = computerScore;
+            winnerDeclaration();
         });
-    })
+    });
 
-    function checkScore() {
-        if (humanScore == computerScore) console.log("It's a tie");
-        if (humanScore > computerScore) console.log("You won! Your score is " + humanScore);
-        else console.log("You lose! Your score is " + humanScore);
+    function winnerDeclaration() {
+        if (humanScore == 5) {
+            winnerElem.textContent = "You won!";
+        } else if (computerScore == 5) {
+            winnerElem.textContent = "You lose!";
+        }
     }
     
 }

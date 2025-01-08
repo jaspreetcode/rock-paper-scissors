@@ -3,17 +3,21 @@
     <head>
         <meta charset="utf-8">
         <title>Rock Paper Scissors</title>
+        <link rel="stylesheet" href="styles.css">
         <script src="script.js" defer></script>
     </head>
     <body>
-        <div class="gameButtons">
-            <button>Rock</button>
-            <button>Paper</button>
-            <button>Scissors</button>
-        </div>
-        <div class="scores">
-            <div class="human"></div>
-            <div class="computer"></div>
+        <div class="container">
+            <div class="game-buttons">
+                <button>Rock</button>
+                <button>Paper</button>
+                <button>Scissors</button>
+            </div>
+            <div class="scores">
+                <p>Your score: <span class="human-score"></span></p>
+                <p>Computer score: <span class="computer-score"></span></p>
+            </div>
+            <p class="winner"></p>
         </div>
     </body>
 </html>
